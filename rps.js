@@ -71,10 +71,10 @@ function playGame() {
     alert("You will play rock paper scissors against a computer best of 5.");
     // play 5 rounds
     for(let i = 0; i < 5; i++){
-        let cs = getHumanChoice();
-        let hs = getComputerChoice();
+        let hc = getHumanChoice();
+        let cc = getComputerChoice();
         // GET win/loss/tie outcome from round
-        let outcome = playRound(cs, hs);
+        let outcome = playRound(hc, cc);
         // ADD 1 to human score if win
         if(outcome === "win"){
             humanScore++;
