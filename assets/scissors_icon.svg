@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <circle cx="100" cy="100" r="90" fill="#1b263b" stroke="#a855f7" stroke-width="8"/>
+  <!-- Scissors shape -->
+  <g transform="translate(100, 100) rotate(-25) translate(-100, -100)">
+    <!-- Blades -->
+    <line x1="75" y1="110" x2="135" y2="55" stroke="#e2e8f0" stroke-width="6" stroke-linecap="round"/>
+    <line x1="75" y1="90" x2="140" y2="135" stroke="#cbd5e1" stroke-width="6" stroke-linecap="round"/>
+    <!-- Pivot screw -->
+    <circle cx="78" cy="100" r="5" stroke="#64748b" stroke-width="3" fill="#cbd5e1"/>
+    <!-- Handles (red/coral circles) -->
+    <circle cx="55" cy="125" r="16" fill="none" stroke="#f87171" stroke-width="8"/>
+    <circle cx="55" cy="70" r="16" fill="none" stroke="#f87171" stroke-width="8"/>
+  </g>
+</svg>

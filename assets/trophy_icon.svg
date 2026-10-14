@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="160" height="160">
+  <g transform="translate(10, 10)">
+    <!-- Sparkles -->
+    <path d="M20,35 L22,42 L29,44 L22,46 L20,53 L18,46 L11,44 L18,42 Z" fill="#fbbf24"/>
+    <path d="M120,25 L121,30 L126,31 L121,32 L120,37 L119,32 L114,31 L119,30 Z" fill="#fbbf24"/>
+    <path d="M135,70 L136,74 L140,75 L136,76 L135,80 L134,76 L130,75 L134,74 Z" fill="#fbbf24"/>
+    
+    <!-- Trophy Body -->
+    <path d="M50,35 C50,35 50,75 70,85 L70,110 L55,110 L55,122 L105,122 L105,110 L90,110 L90,85 C110,75 110,35 110,35 Z" fill="#fbbf24" stroke="#d97706" stroke-width="4" stroke-linejoin="round"/>
+    
+    <!-- Trophy Handles -->
+    <path d="M50,45 C35,45 32,65 48,72" fill="none" stroke="#fbbf24" stroke-width="8" stroke-linecap="round"/>
+    <path d="M110,45 C125,45 128,65 112,72" fill="none" stroke="#fbbf24" stroke-width="8" stroke-linecap="round"/>
+    
+    <!-- Base -->
+    <rect x="40" y="122" width="80" height="15" rx="3" fill="#fbbf24" stroke="#d97706" stroke-width="4"/>
+  </g>
+</svg>

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 220" width="300" height="220">
+  <!-- Blue Filled Button -->
+  <g transform="translate(10, 10)">
+    <rect width="280" height="50" rx="10" fill="#3b82f6"/>
+    <text x="140" y="31" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="600" fill="#ffffff" text-anchor="middle">Play Again</text>
+  </g>
+  
+  <!-- Empty Bordered Button -->
+  <g transform="translate(10, 80)">
+    <rect width="280" height="50" rx="10" fill="none" stroke="#475569" stroke-width="2"/>
+    <text x="140" y="31" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="600" fill="#94a3b8" text-anchor="middle">Back to Home</text>
+  </g>
+
+  <!-- Dark Solid Button -->
+  <g transform="translate(10, 150)">
+    <rect width="280" height="50" rx="10" fill="#0f172a" stroke="#334155" stroke-width="2"/>
+    <text x="140" y="31" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="600" fill="#e2e8f0" text-anchor="middle">Make your move!</text>
+  </g>
+</svg>

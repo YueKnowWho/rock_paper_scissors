@@ -3,9 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="rps.js" defer></script>
     <title>Rock Paper Scissors</title>
 </head>
 <body>
-    <script src = "rps.js"></script>
+    <div class="top">
+        <div class="rules">
+            <h2>Rules</h2>
+            <ol>
+                <li>Choose rock, paper, or scissors</li>
+                <li>Rock beats scissors</li>
+                <li>Scissors beats paper</li>
+                <li>Paper beats rock</li>
+            </ol>
+        </div>
+        <div class="title-and-scores">
+            <div class="titles">
+                <h1 class="title">
+                    <img src="assets/header_hand_icon.svg" height="50" alt="">
+                    Rock Paper Scissors
+                </h1>
+                <p class="subtitle">Beat the computer. First to 5 wins!</p>
+            </div>
+            <div class="scoreboard">
+                <div class="player-score">
+                    <h3>You</h3>
+                    <p>0</p>
+                </div>
+                <div class="computer-score">
+                    <h3>Computer</h3>
+                    <p>0</p>
+                </div>
+            </div>
+        </div>
+        <div class="spacer">
+            <div class="game-over" hidden>
+                <p class="game-over-message"></p>
+                <button class="restart" type="button">Restart Game</button>
+            </div>
+        </div>
+    </div>
+
+    <main class="bottom">
+        <div class="choices">
+            <section class="player-choice">
+                <h3>Your Choice</h3>
+                <div class="icons">
+                    <div class="choice rock">
+                        <img src="assets/rock_icon.svg" alt="Rock">
+                        <p>Rock</p>
+                    </div>
+                    <div class="choice paper">
+                        <img src="assets/paper_icon.svg" alt="Paper">
+                        <p>Paper</p>
+                    </div>
+                    <div class="choice scissors">
+                        <img src="assets/scissors_icon.svg" alt="Scissors">
+                        <p>Scissors</p>
+                    </div>
+                </div>
+            </section>
+            <p class="vs">VS</p>
+            <section class="computer-choice">
+                <h3>Computer's Choice</h3>
+                <img src="assets/unknown_choice_icon.svg" alt="Unknown computer choice">
+                <p class="result">Choose your move</p>
+            </section>
+        </div>
+        <div class="buttons">
+            <button class="move" type="button">Make your move!</button>
+        </div>
+    </main>
 </body>
 </html>

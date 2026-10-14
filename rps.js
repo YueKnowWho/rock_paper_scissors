@@ -1,103 +1,108 @@
-//RETURNS rock, paper, or scissors at random
-function getComputerChoice(){
-    // GET random number greater than or equal to 0 and less than 1
-    let rand = Math.random()
-    // IF number is between 0 and 1/3 return "rock"
-    if(rand >= 0  && rand < 1/3){
+function getComputerChoice() {
+    const computerImage = document.querySelector(".computer-choice img");
+    const randomValue = Math.random();
+
+    if (randomValue < 1 / 3) {
+        computerImage.src = "assets/rock_icon.svg";
         return "rock";
     }
-    // ELSE IF number is between 1/2 and 2/3 return "paper"
-    else if(rand >= 1/3 && rand < 2/3){
+
+    if (randomValue < 2 / 3) {
+        computerImage.src = "assets/paper_icon.svg";
         return "paper";
     }
-    //ELSE return scissors
-    else{
-        return "scissors";
-    }
+
+    computerImage.src = "assets/scissors_icon.svg";
+    return "scissors";
 }
-//RETURN rock, paper, or scissors based on user input
-function getHumanChoice(){
-    // prompt user for input
-    let input;
-    while(input === undefined) {
-        input = prompt('please enter "r" or "rock", "p" or "paper, or "s" or "scissors": ')
-        input = input.toLowerCase();
-        switch(input) {
-            case 'r':
-            case 'rock':
-                return "rock";
-                break;
-            case 'p':
-            case 'paper':
-                return "paper";
-                break;
-            case 's':
-            case 'scissors':
-                return "scissors";
-                break;
-            default:
-                input = undefined;
-                break;
-        }
-    }
-}
-//INPUT rock, paper, scissors for human and computer and display winner
+
 function playRound(humanChoice, computerChoice) {
-    // TIE if human chocie is equal to computer choice
-    if(humanChoice === computerChoice){
-        alert(`You tied! ${humanChoice} = ${computerChoice}.`);
+    if (humanChoice === computerChoice) {
         return "tie";
     }
-    // WIN if human is rock and computer is scissors
-    // WIN if human is paper and computer is rock
-    // WIN if human is scissors and computer is paper
-    else if(humanChoice === "rock" && computerChoice === "scissors" ||
-            humanChoice === "paper" && computerChoice === "rock" ||
-            humanChoice === "scissors" && computerChoice === "paper") {
-        alert(`You win! ${humanChoice} beats ${computerChoice}.`);
+
+    if (
+        (humanChoice === "rock" && computerChoice === "scissors") ||
+        (humanChoice === "paper" && computerChoice === "rock") ||
+        (humanChoice === "scissors" && computerChoice === "paper")
+    ) {
         return "win";
     }
-    //LOSE otherwise
-    else{
-        alert(`You lose! ${humanChoice} loses to ${computerChoice}.`);
-        return "loss";
-    }
+
+    return "loss";
 }
-// CALL 5 rounds of rock paper scissors
+
 function playGame() {
     let humanScore = 0;
     let computerScore = 0;
-    //DISPLAY rules
-    alert("You will play rock paper scissors against a computer best of 5.");
-    // play 5 rounds
-    for(let i = 0; i < 5; i++){
-        let hc = getHumanChoice();
-        let cc = getComputerChoice();
-        // GET win/loss/tie outcome from round
-        let outcome = playRound(hc, cc);
-        // ADD 1 to human score if win
-        if(outcome === "win"){
-            humanScore++;
-        }
-        //ADD 1 to computer score if loss
-        if(outcome === "loss"){
-            computerScore++;
-        }
-        //DO NOTHING if tie
-    }
-    // TIE if humanScore = computerScore
-    if(humanScore === computerScore){
-        alert(`The game was a tie!\nScore: ${humanScore} - ${computerScore}`);
-    }
-    // WIN if humanScore > computerScore
-    else if(humanScore > computerScore) {
-        alert(`Congragulations you won the game!\nScore: ${humanScore} - ${computerScore}`);
-    }
-    // LOSE if humanScore <computerScore
-    else{
-        alert(`Sorry you lost the game!\nScore: ${humanScore} - ${computerScore}`);
-    }
-}
-// main
-playGame();
+    let humanChoice = "";
 
+    const choices = [
+        document.querySelector(".rock"),
+        document.querySelector(".paper"),
+        document.querySelector(".scissors")
+    ];
+    const moveButton = document.querySelector(".move");
+    const humanScoreDom = document.querySelector(".player-score p");
+    const computerScoreDom = document.querySelector(".computer-score p");
+    const computerChoiceDom = document.querySelector(".result");
+    const computerImage = document.querySelector(".computer-choice img");
+    const gameOver = document.querySelector(".game-over");
+    const gameOverMessage = document.querySelector(".game-over-message");
+    const restartButton = document.querySelector(".restart");
+
+    choices.forEach((choice) => {
+        choice.addEventListener("click", () => {
+            choices.forEach((selectedChoice) => {
+                selectedChoice.classList.remove("selected");
+            });
+
+            choice.classList.add("selected");
+            humanChoice = choice.classList[1];
+        });
+    });
+
+    moveButton.addEventListener("click", () => {
+        if (humanChoice === "" || humanScore === 5 || computerScore === 5) {
+            return;
+        }
+
+        const computerChoice = getComputerChoice();
+        const outcome = playRound(humanChoice, computerChoice);
+        computerChoiceDom.textContent = computerChoice;
+
+        if (outcome === "win") {
+            humanScore++;
+            humanScoreDom.textContent = humanScore;
+        } else if (outcome === "loss") {
+            computerScore++;
+            computerScoreDom.textContent = computerScore;
+        }
+
+        if (humanScore === 5 || computerScore === 5) {
+            moveButton.disabled = true;
+            gameOverMessage.textContent = humanScore === 5
+                ? `You won! Score: ${humanScore} - ${computerScore}`
+                : `Computer wins! Score: ${humanScore} - ${computerScore}`;
+            gameOver.hidden = false;
+        }
+    });
+
+    restartButton.addEventListener("click", () => {
+        humanScore = 0;
+        computerScore = 0;
+        humanChoice = "";
+        humanScoreDom.textContent = humanScore;
+        computerScoreDom.textContent = computerScore;
+        computerChoiceDom.textContent = "Choose your move";
+        computerImage.src = "assets/unknown_choice_icon.svg";
+        moveButton.disabled = false;
+        gameOver.hidden = true;
+
+        choices.forEach((choice) => {
+            choice.classList.remove("selected");
+        });
+    });
+}
+
+playGame();

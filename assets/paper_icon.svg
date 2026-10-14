@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <circle cx="100" cy="100" r="90" fill="#1b263b" stroke="#10b981" stroke-width="8"/>
+  <!-- Paper tilted sheet -->
+  <g transform="translate(100, 100) rotate(12) translate(-100, -100)">
+    <polygon points="65,45 135,55 130,155 60,145" fill="#f8fafc" stroke="#e2e8f0" stroke-width="2"/>
+    <!-- Subtle shadow line / fold effect -->
+    <line x1="65" y1="45" x2="130" y2="155" stroke="#cbd5e1" stroke-width="1.5" opacity="0.5"/>
+  </g>
+</svg>
